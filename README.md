@@ -60,72 +60,8 @@ This project is designed for robotics research, autonomous navigation experiment
 
 # System Architecture
 
-# System Architecture
+<img width="1920" height="1080" alt="Untitled design (3)" src="https://github.com/user-attachments/assets/72ba3342-f574-4d74-8a78-6767550cf54f" />
 
-```text
-                        ┌─────────────────────┐
-                        │     Goal Pose       │
-                        │   RViz 2D Nav Goal  │
-                        └──────────┬──────────┘
-                                   │
-                                   ▼
-                    ┌──────────────────────────┐
-                    │   RRT Planner Node       │
-                    │  Custom Path Planner     │
-                    └──────────┬───────────────┘
-                               │
-        ┌──────────────────────┼──────────────────────┐
-        │                      │                      │
-        ▼                      ▼                      ▼
-┌──────────────┐     ┌────────────────┐    ┌─────────────────┐
-│ Random Point │     │ Nearest Node   │    │ Collision Check │
-│   Sampling   │     │    Search      │    │ Occupancy Grid  │
-└──────┬───────┘     └────────┬───────┘    └────────┬────────┘
-       │                      │                     │
-       └──────────────────────┴─────────────────────┘
-                              │
-                              ▼
-                 ┌────────────────────────┐
-                 │   Tree Expansion       │
-                 │   Edge Generation      │
-                 └──────────┬─────────────┘
-                            │
-                            ▼
-                 ┌────────────────────────┐
-                 │    Goal Reached ?      │
-                 └──────────┬─────────────┘
-                            │
-                            ▼
-                 ┌────────────────────────┐
-                 │    Path Extraction     │
-                 │ Parent Node Traversal  │
-                 └──────────┬─────────────┘
-                            │
-                            ▼
-                 ┌────────────────────────┐
-                 │     Path Smoothing     │
-                 │ Interpolation Filter   │
-                 └──────────┬─────────────┘
-                            │
-                            ▼
-          ┌──────────────────────────────────────┐
-          │        Visualization Layer           │
-          │  RViz Tree / Samples / Final Path    │
-          └──────────┬───────────────────────────┘
-                     │
-                     ▼
-          ┌──────────────────────────────────────┐
-          │      Navigation Stack (Nav2)         │
-          │ Controller + Localization + BT       │
-          └──────────┬───────────────────────────┘
-                     │
-                     ▼
-          ┌──────────────────────────────────────┐
-          │     Differential Drive Robot         │
-          │     Gazebo Simulation Environment    │
-          └──────────────────────────────────────┘
-
-```
 
 ---
 
@@ -249,6 +185,7 @@ The raw path is smoothed using interpolation filtering.
 
 ## Gazebo Environment
 
+<img width="675" height="670" alt="gazebo" src="https://github.com/user-attachments/assets/bb38b470-ff06-4d42-a15b-5ecb52e71e03" />
 
 
 ---
@@ -279,13 +216,9 @@ The launch system automatically starts:
 # Future Improvements
 
 - Dynamic obstacle avoidance
-- Hybrid ACO-RRT planning
-- RealSense depth integration
-- Multi-robot coordination
 - Reinforcement learning optimization
 - Real-world robot deployment
-- SLAM integration
-- Semantic navigation
+
 
 ---
 
@@ -302,7 +235,7 @@ The launch system automatically starts:
 
 # Research Contribution
 
-This project demonstrates the integration of custom sampling-based path planning algorithms with ROS2 autonomous navigation systems and real-time visualization frameworks.
+This project demonstrates the integration of custom sampling based path planning algorithms with ROS2 autonomous navigation systems and real time visualization frameworks.
 
 The system can serve as a foundation for future research in:
 
